@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="资讯">
+       <menu>
+        <item
+            android:id="@+id/dailyInfo"
+            android:icon="@drawable/wangyi"
+            android:title="每日热点" />
+        <item
+            android:id="@+id/specialInfo"
+            android:icon="@drawable/zhihu"
+            android:title="主题专栏" />
+        <item
+            android:id="@+id/collectInfo"
+            android:icon="@drawable/ic_collect2"
+            android:title="收藏集合" />
+       </menu>
+
+    </item>
+
+        <item android:title="选项">
+            <menu>
+                <item
+                    android:id="@+id/day_night"
+                    android:icon="@drawable/ic_night"
+                    android:title="夜间"/>
+                <item
+                    android:id="@+id/settings"
+                    android:icon="@drawable/setting"
+                    android:title="设置" />
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/ic_about"
+                    android:title="关于" />
+            </menu>
+        </item>
+    </group>
+
+</menu>
