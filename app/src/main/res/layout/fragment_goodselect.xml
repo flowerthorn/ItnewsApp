@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.items.code.ui.main.fragment.GoodselectFragment">
+
+
+    <TextView
+        android:layout_width="169dp"
+        android:layout_height="128dp"
+        android:text="精选"
+        android:textSize="40dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+</FrameLayout>

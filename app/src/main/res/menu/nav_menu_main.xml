@@ -7,17 +7,17 @@
         <item android:title="资讯">
        <menu>
         <item
-            android:id="@+id/dailyInfo"
+            android:id="@+id/mainInfo"
             android:icon="@drawable/wangyi"
-            android:title="每日热点" />
+            android:title="主页" />
         <item
             android:id="@+id/specialInfo"
             android:icon="@drawable/zhihu"
-            android:title="主题专栏" />
+            android:title="专栏" />
         <item
             android:id="@+id/collectInfo"
             android:icon="@drawable/ic_collect2"
-            android:title="收藏集合" />
+            android:title="收藏" />
        </menu>
 
     </item>
