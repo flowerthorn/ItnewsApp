@@ -1,14 +1,18 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.items.code.ui.main.fragment.LastestFragment">
 
-    <TextView
-        android:layout_width="169dp"
-        android:layout_height="128dp"
-        android:text="最新资讯"
-        android:textSize="40dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-</FrameLayout>
+        <ListView
+            android:dividerHeight="1dip"
+            android:divider="?android:attr/colorControlHighlight"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/listview">
+        </ListView>
+
+
+</LinearLayout>
