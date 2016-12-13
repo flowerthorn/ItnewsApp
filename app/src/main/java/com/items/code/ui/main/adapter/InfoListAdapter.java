@@ -1,5 +1,4 @@
 package com.items.code.ui.main.adapter;
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,19 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
 import com.items.code.R;
-import com.items.code.model.bean.data.Info;
-import com.items.code.model.bean.data.RESULT;
 import com.items.code.model.bean.data.dataInfo;
-import com.items.code.ui.main.fragment.MyApplication;
+
 
 import java.util.ArrayList;
 
@@ -53,6 +44,9 @@ public class InfoListAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+        Log.i("First positon",""+position);
+        Log.i("First count",""+list.size());
+        Log.i("First getItem",""+list.get(position));
         if(convertView==null){
             holder=new ViewHolder();
             convertView= LayoutInflater.from(c).inflate(R.layout.lastest_itemlist,null);

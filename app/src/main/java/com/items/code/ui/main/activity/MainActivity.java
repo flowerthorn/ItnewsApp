@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import com.items.code.R;
 import com.items.code.ui.main.adapter.MainFragmentPagerAdapter;
-import com.items.code.ui.main.fragment.GoodselectFragment;
+import com.items.code.ui.main.fragment.InterestingFragment;
 import com.items.code.ui.main.fragment.HotFragment;
 import com.items.code.ui.main.fragment.LastestFragment;
 import com.items.code.ui.main.fragment.YejieFragment;
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity
         tabLayout= (TabLayout) findViewById(R.id.tablayout);
         viewPager= (ViewPager) findViewById(R.id.viewpager);
         titlelist.add("最新");
-        titlelist.add("精选");
+        titlelist.add("有趣");
         titlelist.add("热门");
         titlelist.add("业界");
         fragmentList.add(new LastestFragment());
-        fragmentList.add(new GoodselectFragment());
+        fragmentList.add(new InterestingFragment());
         fragmentList.add(new HotFragment());
         fragmentList.add(new YejieFragment());
 
@@ -69,13 +69,6 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setupWithViewPager(viewPager);
         //使用ViewPager的适配器
         tabLayout.setTabsFromPagerAdapter(mainFragmentPagerAdapter);
-
-      /*  for(int i=0;i<titlelist.size();i++){
-            tabLayout.addTab(tabLayout.newTab().setText(titlelist.get(i)));}
-        for (int i=0;i<titlelist.size();i++) {
-        }
-*/
-
 
 
 
