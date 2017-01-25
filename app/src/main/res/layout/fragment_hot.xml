@@ -3,12 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.items.code.ui.main.fragment.HotFragment">
-
-    <TextView
-        android:layout_width="169dp"
-        android:layout_height="128dp"
-        android:text="热门"
-        android:textSize="40dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/hot_webview"></WebView>
 
 </FrameLayout>

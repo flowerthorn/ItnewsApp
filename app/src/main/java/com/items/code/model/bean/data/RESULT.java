@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class RESULT {
     private String start;
     private ArrayList<dataInfo> data;
-
     public ArrayList<dataInfo> getData() {
         return data;
     }

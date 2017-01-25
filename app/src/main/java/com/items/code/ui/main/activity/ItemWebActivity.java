@@ -3,24 +3,28 @@ package com.items.code.ui.main.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.util.Log;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.items.code.R;
+import com.items.code.Utils.LogUtils;
+import com.items.code.Utils.WebUtils;
 import com.items.code.model.bean.data.dataInfo;
+import com.items.code.ui.main.fragment.MyApplication;
 
-import java.util.ArrayList;
 
 /**
  * Created by lihongxin on 2016/12/6.
  */
-
+//显示最新新闻的webview
 public class ItemWebActivity extends Activity {
     private WebView wv;
+    private String data="";
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,25 +36,8 @@ public class ItemWebActivity extends Activity {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setBuiltInZoomControls(true);//添加对js功能的支持
-        Intent intent=getIntent();
-        dataInfo dataInfo= (dataInfo) intent.getSerializableExtra("obj");
-        String url=dataInfo.getUrl();
-        wv.loadUrl(url);
-        wv.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-                view.loadUrl(url);
-                return true;
-
-            }
-        });
-
-    }
-
-
-}
- /*       wv.setWebChromeClient(new WebChromeClient() {
+        wv.setWebViewClient(new WebViewClient());
+        wv.setWebChromeClient(new WebChromeClient() {
 
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -62,4 +49,48 @@ public class ItemWebActivity extends Activity {
                 }
             }
 
-        });*/
+        });
+        Intent intent=getIntent();
+        dataInfo dataInfo= (dataInfo) intent.getSerializableExtra("obj");
+        String url=dataInfo.getUrl();
+        getLeatestUrlHtml(url);
+
+}
+
+    public void getLeatestUrlHtml(String url) {
+        StringRequest request=new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                //对获取到的html代码处理
+                LogUtils.Logli("请求url返回的html(未处理):",s);
+                dealHtml(s);
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        });
+        MyApplication.getRequsetquene().add(request);
+    }
+
+        public void dealHtml(String s) {
+        //字符串操作
+
+          String todelete=s.substring(s.indexOf("<div id=\"news_check\">"));
+            data=s.replace(todelete,"");
+            String append="<script src=\"https://mini.eastday.com/toutiaoh5/js/photoswipe/photoswipe.min.js\"></script>\n" +
+                    "<script src=\"https://mini.eastday.com/toutiaoh5/js/common.min.js\"></script>\n" +
+                    "<script src=\"https://mini.eastday.com/toutiaoh5/js/gg_details_v2.min.js\"></script>\n" +
+                    "<script src=\"https://mini.eastday.com/toutiaoh5/js/page_details_v2.min.js\"></script>\n" +
+                    "</body>\n" +
+                    "</html>";
+            data=data+append;
+            wv.loadDataWithBaseURL(WebUtils.BASE_URL,data,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
+            //LogUtils.LogLi(data);
+
+    }
+
+}

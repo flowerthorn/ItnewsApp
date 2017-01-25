@@ -73,12 +73,9 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher=pattern.matcher(s);
         while(matcher.find()){
-            //Log.i("matcher.group()",matcher.group());
             stringlist.add(matcher.group());
         }
-        //得到stringlist后进行二次正则
-        //分析<dd></dd>String //
-        // 提取数据
+        //得到stringlist后进行二次正则//分析<dd></dd>得到单独的String // 提取数据
         interInfo.setTitlelist(gettitleList(stringlist));
         interInfo.setSrclist(getsrcList(stringlist));
         interInfo.setUrllist(geturlList(stringlist));
@@ -86,9 +83,6 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
         adapter=new InterestInfoListAdapter(getActivity(),interInfo,dataInfolist);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
-
-
-
     }
 
     private List<String> getsrcList(List<String> stringlist) {

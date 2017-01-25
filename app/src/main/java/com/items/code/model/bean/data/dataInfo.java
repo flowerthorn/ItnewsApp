@@ -8,8 +8,11 @@ import java.io.Serializable;
 
 public class dataInfo implements Serializable {
     private String title;
-
     private String date;
+    private String author_name;
+    private String thumbnail_pic_s;
+    private String url;
+
 
     public String getAuthor_name() {
         return author_name;
@@ -19,9 +22,6 @@ public class dataInfo implements Serializable {
         this.author_name = author_name;
     }
 
-    private String author_name;
-    private String thumbnail_pic_s;
-    private String url;
 
 
     public String getThumbnail_pic_s() {
