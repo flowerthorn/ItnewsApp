@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--夜间黑主题-->
+    <style name="Night_theme" parent="BaseTheme.Night">
+        <item name="colorPrimary">@color/black_primary</item>
+        <item name="colorPrimaryDark">@color/black_primary_dark</item>
+        <item name="colorAccent">@color/black_primary_light</item>
+        <item name="colorTextLight">@color/black_text_light</item>
+        <item name="colorTextDark">@color/black_text_dark</item>
+        <item name="colorBackground">@color/grey_800</item>
+        <item name="colorNavItem">@color/item_nav_night_seletor</item>
+        <item name="colorDivider">@color/comment_divider</item>
+    </style>
+    <!-- 复古绿主题-->
+    <style name="Green_theme" parent="BaseTheme">
+        <item name="colorPrimary">@color/green_primary_dark</item>
+        <item name="colorPrimaryDark">@color/green_primary</item>
+        <item name="colorAccent">@color/green_primary_light</item>
+        <item name="colorTextLight">@color/green_text_light</item>
+        <item name="colorTextDark">@color/green_text_dark</item>
+        <item name="colorBackground">@color/comment_backgroud</item>
+        <item name="colorDivider">@color/comment_divider</item>
+    </style>
+    <!--中国红主题-->
+    <style name="Red_theme" parent="BaseTheme">
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryDark">@color/red_primary_dark</item>
+        <item name="colorAccent">@color/red_primary_light</item>
+        <item name="colorTextLight">@color/red_text_light</item>
+        <item name="colorTextDark">@color/red_text_dark</item>
+        <item name="colorBackground">@color/comment_backgroud</item>
+        <item name="colorDivider">@color/comment_divider</item>
+    </style>
+
+    <!--琥珀黄主题-->
+    <style name="Yellow_theme" parent="BaseTheme">
+        <item name="colorPrimary">@color/amber_primary</item>
+        <item name="colorPrimaryDark">@color/amber_primary_dark</item>
+        <item name="colorAccent">@color/amber_primary_light</item>
+        <item name="colorTextLight">@color/amber_text_light</item>
+        <item name="colorTextDark">@color/amber_text_dark</item>
+        <item name="colorBackground">@color/comment_backgroud</item>
+        <item name="colorDivider">@color/comment_divider</item></style>
+
+
+    <!--可爱粉主题-->
+    <style name="Pink_theme" parent="BaseTheme">
+        <item name="colorPrimary">@color/pink_primary</item>
+        <item name="colorPrimaryDark">@color/pink_primary_dark</item>
+        <item name="colorAccent">@color/pink_primary_light</item>
+        <item name="colorTextLight">@color/pink_text_light</item>
+        <item name="colorTextDark">@color/pink_text_dark</item>
+        <item name="colorBackground">@color/comment_backgroud</item>
+        <item name="colorDivider">@color/comment_divider</item></style>
+    <!--活力蓝主题-->
+    <style name="Blue_theme" parent="BaseTheme">
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryDark">@color/blue_primary_dark</item>
+        <item name="colorAccent">@color/blue_primary_light</item>
+        <item name="colorTextLight">@color/blue_text_light</item>
+        <item name="colorTextDark">@color/blue_text_dark</item>
+        <item name="colorBackground">@color/comment_backgroud</item>
+        <item name="colorDivider">@color/comment_divider</item></style>
+</resources>

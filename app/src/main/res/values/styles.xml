@@ -1,16 +1,29 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
+    //日间--默认theme
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="MainTabLayout" parent="Widget.Design.TabLayout">
- <!--       <item name="tabIndicatorHeight">2.5dp</item>
-        <item name="tabPaddingStart">12dp</item>
-        <item name="tabPaddingEnd">12dp</item>-->
+    <style name="MainTabLayout" parent="Widget.Design.TabLayout"></style>
+
+    <style name="MyActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">?attr/colorPrimaryDark</item>
+        <item name="android:actionModeBackground">?attr/colorPrimary</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+
+    <!--夜间模式主题-->
+    <style name="BaseTheme.Night" parent="Theme.AppCompat.NoActionBar">
+    </style>
+    <!--默认主题-->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 </resources>

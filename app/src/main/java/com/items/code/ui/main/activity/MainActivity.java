@@ -1,5 +1,5 @@
 package com.items.code.ui.main.activity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -8,31 +8,35 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
+import com.items.code.Utils.ThemeUtils;
+import com.items.code.ui.collect.CollectActivity;
 import com.items.code.ui.main.adapter.MainFragmentPagerAdapter;
 import com.items.code.ui.main.fragment.InterestingFragment;
 import com.items.code.ui.main.fragment.HotFragment;
 import com.items.code.ui.main.fragment.LastestFragment;
-import com.items.code.ui.main.fragment.YejieFragment;
+import com.items.code.ui.main.fragment.SelectFragment;
+import com.items.code.ui.other.AboutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    List<String> titlelist=new ArrayList<String>();
-    List<Fragment> fragmentList=new ArrayList<Fragment>();
+    List<String> titlelist=new ArrayList<>();
+    List<Fragment> fragmentList=new ArrayList<>();
     private Toolbar toolbar;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,15 +57,14 @@ public class MainActivity extends AppCompatActivity
         
         tabLayout= (TabLayout) findViewById(R.id.tablayout);
         viewPager= (ViewPager) findViewById(R.id.viewpager);
-        titlelist.add("最新");
+        titlelist.add("日报");
         titlelist.add("有趣");
         titlelist.add("热门");
-        titlelist.add("业界");
+        titlelist.add("精选");
         fragmentList.add(new LastestFragment());
         fragmentList.add(new InterestingFragment());
         fragmentList.add(new HotFragment());
-        fragmentList.add(new YejieFragment());
-
+        fragmentList.add(new SelectFragment());
         //为viewPager设置适配器
         MainFragmentPagerAdapter mainFragmentPagerAdapter=new MainFragmentPagerAdapter(getSupportFragmentManager(),titlelist,fragmentList);
         viewPager.setAdapter(mainFragmentPagerAdapter);
@@ -69,8 +72,6 @@ public class MainActivity extends AppCompatActivity
         tabLayout.setupWithViewPager(viewPager);
         //使用ViewPager的适配器
         tabLayout.setTabsFromPagerAdapter(mainFragmentPagerAdapter);
-
-
 
     }
 
@@ -87,20 +88,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
         return super.onOptionsItemSelected(item);
     }
 //菜单监听
@@ -109,23 +101,23 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mainInfo) {
-            //  action
-            toolbar.setTitle("IT资讯");
 
+            toolbar.setTitle("主页资讯");
 
-
-        } else if (id == R.id.specialInfo) {
-            toolbar.setTitle("专栏");
+        } else if (id == R.id.smileInfo) {
+        /*    Intent intent=new Intent(MainActivity.this,CollectActivity.class);
+            startActivity(intent);*/
 
         } else if (id == R.id.collectInfo) {
-
-
-        } else if (id == R.id.day_night) {
-
-        }else if (id == R.id.settings) {
+         Intent intent=new Intent(MainActivity.this,CollectActivity.class);
 
         } else if (id == R.id.about) {
+ /*           Intent intent=new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);*/
 
+        }
+        else if (id==R.id.day_night){
+            ThemeUtils.changeTheme(this);
         }
 
         drawer.closeDrawer(GravityCompat.START);

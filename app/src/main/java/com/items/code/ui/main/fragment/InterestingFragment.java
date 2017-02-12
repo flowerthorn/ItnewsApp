@@ -4,12 +4,15 @@ package com.items.code.ui.main.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toolbar;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -17,6 +20,8 @@ import com.items.code.R;
 import com.items.code.model.bean.data.InterestdataInfo;
 import com.items.code.ui.main.activity.InterestWebActivity;
 import com.items.code.ui.main.adapter.InterestInfoListAdapter;
+import com.items.code.ui.main.adapter.MainFragmentPagerAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,6 +37,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
     private List<String> urlList;
     private List<String> titleList;
     private String url="http://www.myexception.cn/other/";
+    Toolbar toolbar;
     public InterestingFragment() {
 
     }
@@ -41,7 +47,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
 
         View view =inflater.inflate(R.layout.fragment_interesting, container, false);
         listView= (ListView) view.findViewById(R.id.interest_listview);
-       //得到网页源代码
+        //得到网页源代码
         getHTML();
         return view;
     }
@@ -88,7 +94,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
     private List<String> getsrcList(List<String> stringlist) {
         srcList = new ArrayList<>();
         for (String data:stringlist){
-            String regEX="(/u/cms/www/).*?(.jpg)";//图片
+            String regEX="(/u/cms/www/).*?(.jpg|png|gif|jpeg)";//图片
             Pattern pattern=Pattern.compile(regEX);
             Matcher matcher=pattern.matcher(data);
             while(matcher.find()){

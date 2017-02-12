@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
 
 /**
@@ -13,7 +15,7 @@ import com.items.code.R;
  */
 
 
-public class InterestWebActivity extends Activity {
+public class InterestWebActivity extends BaseActivity {
     private WebView wv;
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -4,15 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:toolbar="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
   <!--
   ?attr/actionBarSize:表示根据屏幕的分辨率采用系统默认的高度
-  -->
+  -->   <!--android:background="?attr/colorPrimary"
+        android:backgroundTint="?attr/colorPrimary"-->
     <android.support.v7.widget.Toolbar
-        android:background="?attr/colorPrimary"
-        android:backgroundTint="@color/colorPrimary"
-        app:theme="@style/AppTheme.AppBarOverlay"
+
+        app:theme="@style/MyActionBar"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:titleTextColor="#ffffff"
         android:id="@+id/toolbar"
@@ -24,10 +25,10 @@
     android:id="@+id/tablayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:tabSelectedTextColor="#ffffff"
-    app:tabTextColor="#ffffff"
-    app:tabIndicatorColor="#ffffff"
-    android:background="@color/colorPrimaryDark"
+    app:tabSelectedTextColor="#B6B6B6"
+    app:tabTextColor="#B6B6B6"
+    app:tabIndicatorColor="#B6B6B6"
+    android:background="?attr/colorPrimary"
     style="@style/MainTabLayout"
     >
 
@@ -36,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1"
-        android:background="#ffffff"
+        android:background="?attr/colorBackground"
         android:id="@+id/viewpager"
         ></android.support.v4.view.ViewPager>
 

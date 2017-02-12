@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <!--  <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>-->
-    <color name="colorPrimary">#336600</color>
-    <color name="colorPrimaryDark">#6B8E23</color>
-    <color name="colorAccent">#68838B</color>
+ <!-- 其他颜色-->
+  <color name="colorPrimary">#336600</color>
+  <color name="colorPrimaryDark">#6B8E23</color>
+  <color name="colorAccent">#68838B</color>
+  <color name="windowBackground">#d6d3d3</color>
+  <color name="slide_1">#4f91ff</color>
+  <color name="slide_2">#fb9c25</color>
+  <color name="slide_3">#5ab55d</color>
+  <color name="slide_4">#ea2d6d</color>
+  <color name="grey_800">#424242</color>
+  <color name="comment_divider">#B6B6B6</color>
+  <color name="comment_backgroud">#ffffff</color>
+  <!--绿色主题-->
+    <color name="green_primary">#336600</color>
+    <color name="green_primary_dark">#6B8E23</color>
+    <color name="green_primary_light">#6B8222</color>
+    <color name="green_accent">#335600</color>
+    <color name="green_text_light">#212121</color>
+    <color name="green_text_dark">#FFFFFF</color>
+    <color name="green_icons">#727272</color>
+  <!--夜间主题-->
+  <color name="black_primary">#1f1f20</color>
+  <color name="black_primary_dark">#000</color>
+  <color name="black_primary_light">#666</color>
+  <color name="black_accent">#000</color>
+  <color name="black_text_light">#9B9B9B</color>
+  <color name="black_text_dark">#FFFFFF</color>
+  <color name="black_backgroud">#2D2D2D</color>
+    <!--红色主题-->
+    <color name="red_primary">#F44336</color>
+    <color name="red_primary_dark">#D32F2F</color>
+    <color name="red_primary_light">#FFCDD2</color>
+    <color name="red_accent">#CDDC39</color>
+    <color name="red_text_light">#212121</color>
+    <color name="red_text_dark">#ffffff</color>
+    <color name="red_icons">#FFFFFF</color>
+
+    <!--琥珀色主题-->
+    <color name="amber_primary">#FFC107</color>
+    <color name="amber_primary_dark">#FFA000</color>
+    <color name="amber_primary_light">#FFECB3</color>
+    <color name="amber_accent">#CDDC39</color>
+    <color name="amber_text_light">#212121</color>
+    <color name="amber_text_dark">#FFFFFF</color>
+    <color name="amber_icons">#212121</color>
+
+
+    <!--粉红色主题-->
+    <color name="pink_primary">#E91E63</color>
+    <color name="pink_primary_dark">#C2185B</color>
+    <color name="pink_primary_light">#F8BBD0</color>
+    <color name="pink_accent">#FF4081</color>
+    <color name="pink_text_light">#212121</color>
+    <color name="pink_text_dark">#ffffff</color>
+    <color name="pink_icons">#FFFFFF</color>
+
+    <!--靛蓝色主题-->
+    <color name="blue_primary">#3F51B5</color>
+    <color name="blue_primary_dark">#303F9F</color>
+    <color name="blue_primary_light">#C5CAE9</color>
+    <color name="blue_accent">#536DFE</color>
+    <color name="blue_text_light">#212121</color>
+    <color name="blue_text_dark">#ffffff</color>
+    <color name="blue_icons">#FFFFFF</color>
 </resources>
