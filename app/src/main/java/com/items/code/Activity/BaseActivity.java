@@ -14,6 +14,7 @@ import com.items.code.Utils.ThemeUtils;
 public class BaseActivity extends AppCompatActivity
 {
  @Override
+
  protected void onCreate(Bundle savedInstanceState) {
      super.onCreate(savedInstanceState);
      ThemeUtils.setTheme(this);

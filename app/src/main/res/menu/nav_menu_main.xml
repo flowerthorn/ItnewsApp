@@ -9,15 +9,15 @@
        <menu>
         <item
             android:id="@+id/mainInfo"
-            android:icon="@drawable/wangyi"
+            android:icon="@drawable/ic_menu_home"
             android:title="主页资讯" />
         <item
             android:id="@+id/smileInfo"
-            android:icon="@drawable/zhihu"
+            android:icon="@drawable/ic_mood_black_24dp"
             android:title="IT笑话" />
         <item
             android:id="@+id/collectInfo"
-            android:icon="@drawable/ic_collect2"
+            android:icon="@drawable/ic_menu_favorite"
             android:title="收藏" />
        </menu>
 
@@ -27,7 +27,7 @@
             <menu>
                 <item
                     android:id="@+id/day_night"
-                    android:icon="@android:drawable/ic_menu_manage"
+                    android:icon="@drawable/ic_menu_manage"
                     android:title="主题"/>
           <!--      <item
                     android:id="@+id/settings"
@@ -35,7 +35,7 @@
                     android:title="设置" />-->
                 <item
                     android:id="@+id/about"
-                    android:icon="@drawable/ic_about"
+                    android:icon="@drawable/ic_menu_info_details"
                     android:title="关于" />
             </menu>
         </item>

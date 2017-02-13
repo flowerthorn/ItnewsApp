@@ -26,8 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.activity.ItemWebActivity" />
-        <activity android:name=".ui.main.activity.InterestWebActivity" />
+        <activity android:name=".ui.main.activity.ItemWebActivity"
+            android:label="新闻详情"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.main.activity.InterestWebActivity"
+            android:label="新闻详情"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.collect.CollectActivity"/>
     </application>
 

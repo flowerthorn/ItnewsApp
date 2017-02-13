@@ -5,10 +5,10 @@
   <color name="colorPrimaryDark">#6B8E23</color>
   <color name="colorAccent">#68838B</color>
   <color name="windowBackground">#d6d3d3</color>
-  <color name="slide_1">#4f91ff</color>
+<!--  <color name="slide_1">#4f91ff</color>
   <color name="slide_2">#fb9c25</color>
   <color name="slide_3">#5ab55d</color>
-  <color name="slide_4">#ea2d6d</color>
+  <color name="slide_4">#ea2d6d</color>-->
   <color name="grey_800">#424242</color>
   <color name="comment_divider">#B6B6B6</color>
   <color name="comment_backgroud">#ffffff</color>

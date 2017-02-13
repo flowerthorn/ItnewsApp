@@ -10,4 +10,5 @@
         android:paddingRight="24dp"
         android:paddingLeft="24dp"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp"/>
+        android:paddingBottom="8dp"
+    />

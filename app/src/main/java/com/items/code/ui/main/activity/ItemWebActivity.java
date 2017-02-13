@@ -1,19 +1,22 @@
 package com.items.code.ui.main.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
-import com.items.code.Utils.LogUtils;
 import com.items.code.Utils.WebUtils;
 import com.items.code.model.bean.data.dataInfo;
 import com.items.code.ui.main.fragment.MyApplication;
@@ -30,6 +33,8 @@ public class ItemWebActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_content);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         wv= (WebView) findViewById(R.id.webview);
         WebSettings webSettings=wv.getSettings();
         webSettings.setJavaScriptEnabled(true);
@@ -38,7 +43,14 @@ public class ItemWebActivity extends BaseActivity {
         webSettings.setAllowFileAccess(true);
         webSettings.setBuiltInZoomControls(true);//添加对js功能的支持
         wv.setWebViewClient(new WebViewClient());
-        wv.setWebChromeClient(new WebChromeClient() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+         {    @Override
+         public void onClick(View v) {
+             finish();
+         }
+         }
+        );
+ /*       wv.setWebChromeClient(new WebChromeClient() {
 
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -50,7 +62,7 @@ public class ItemWebActivity extends BaseActivity {
                 }
             }
 
-        });
+        });*/
         Intent intent=getIntent();
         dataInfo dataInfo= (dataInfo) intent.getSerializableExtra("obj");
         String url=dataInfo.getUrl();
@@ -94,4 +106,26 @@ public class ItemWebActivity extends BaseActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+   /*         case R.id.backup:
+                finish();
+                break;*/
+            case R.id.collect:
+                item.setIcon(R.drawable.ic_favorite_black_24dp);
+                break;
+            case R.id.share:
+                Toast.makeText(this,"share",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return true;
+    }
 }

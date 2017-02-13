@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--<item
+    android:id="@+id/backup"
+    android:icon="@mipmap/ic_launcher"
+    android:title="Backup"
+    app:showAsAction="always">
+   </item>-->
+    <item
+        android:id="@+id/collect"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:title="Collect"
+        app:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share"
+        android:title="Share"
+        app:showAsAction="always">
+    </item>
+
+</menu>
