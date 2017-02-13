@@ -6,11 +6,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,14 +19,16 @@ import com.items.code.Utils.WebUtils;
 import com.items.code.model.bean.data.dataInfo;
 import com.items.code.ui.main.fragment.MyApplication;
 
-
 /**
- * Created by lihongxin on 2016/12/6.
+ * Created by lihongxin on 2017/2/13.
  */
-//显示最新新闻的webview
-public class ItemWebActivity extends BaseActivity {
+//最新新闻-新闻详情
+public class LastestWebActivity extends BaseActivity {
     private WebView wv;
     private String data="";
+    private dataInfo dataInfo;
+    private String url=null;
+    private String title=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +44,11 @@ public class ItemWebActivity extends BaseActivity {
         webSettings.setBuiltInZoomControls(true);//添加对js功能的支持
         wv.setWebViewClient(new WebViewClient());
         toolbar.setNavigationOnClickListener(new View.OnClickListener()
-         {    @Override
-         public void onClick(View v) {
-             finish();
-         }
-         }
+                                             {    @Override
+                                             public void onClick(View v) {
+                                                 finish();
+                                             }
+                                             }
         );
  /*       wv.setWebChromeClient(new WebChromeClient() {
 
@@ -64,11 +64,12 @@ public class ItemWebActivity extends BaseActivity {
 
         });*/
         Intent intent=getIntent();
-        dataInfo dataInfo= (dataInfo) intent.getSerializableExtra("obj");
-        String url=dataInfo.getUrl();
+        dataInfo= (dataInfo) intent.getSerializableExtra("obj");
+        url=dataInfo.getUrl();
+        title=dataInfo.getTitle();
         getLeatestUrlHtml(url);
 
-}
+    }
 
     public void getLeatestUrlHtml(String url) {
         StringRequest request=new StringRequest(url, new Response.Listener<String>() {
@@ -89,20 +90,20 @@ public class ItemWebActivity extends BaseActivity {
         MyApplication.getRequsetquene().add(request);
     }
 
-        public void dealHtml(String s) {
+    public void dealHtml(String s) {
         //字符串操作
-          String todeletebottom=s.substring(s.indexOf("<div id=\"news_check\">"));
-            data=s.replace(todeletebottom,"");
-            String append="<script src=\"https://mini.eastday.com/toutiaoh5/js/photoswipe/photoswipe.min.js\"></script>\n" +
-                    "<script src=\"https://mini.eastday.com/toutiaoh5/js/common.min.js\"></script>\n" +
-                    "<script src=\"https://mini.eastday.com/toutiaoh5/js/gg_details_v2.min.js\"></script>\n" +
-                    "</body>\n" +
-                    "</html>";
-            data=data+append;
-            //LogUtils.Logli("data2",data);
-            wv.loadDataWithBaseURL(WebUtils.BASE_URL,data,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
-            //LogUtils.Logli("显示之后的html代码",data);
-            //LogUtils.LogLi(data);
+        String todeletebottom=s.substring(s.indexOf("<div id=\"news_check\">"));
+        data=s.replace(todeletebottom,"");
+        String append="<script src=\"https://mini.eastday.com/toutiaoh5/js/photoswipe/photoswipe.min.js\"></script>\n" +
+                "<script src=\"https://mini.eastday.com/toutiaoh5/js/common.min.js\"></script>\n" +
+                "<script src=\"https://mini.eastday.com/toutiaoh5/js/gg_details_v2.min.js\"></script>\n" +
+                "</body>\n" +
+                "</html>";
+        data=data+append;
+        //LogUtils.Logli("data2",data);
+        wv.loadDataWithBaseURL(WebUtils.BASE_URL,data,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
+        //LogUtils.Logli("显示之后的html代码",data);
+        //LogUtils.LogLi(data);
 
     }
 
@@ -122,10 +123,16 @@ public class ItemWebActivity extends BaseActivity {
                 item.setIcon(R.drawable.ic_favorite_black_24dp);
                 break;
             case R.id.share:
-
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "哈哈哈");
+                intent.putExtra(Intent.EXTRA_TEXT, "标题："+title+url+"\n"+"---来自IT资讯");
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent, "IT资讯分享"));
                 break;
             default:
         }
         return true;
     }
 }
+

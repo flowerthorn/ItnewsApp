@@ -27,6 +27,8 @@ import static java.security.AccessController.getContext;
 public class InterestWebActivity extends BaseActivity  {
     private WebView wv;
     private Toolbar toolbar;
+    String title=null;
+    String url=null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,8 @@ public class InterestWebActivity extends BaseActivity  {
         webSettings.setAllowFileAccess(true);
         webSettings.setBuiltInZoomControls(true);//添加对js功能的支持
         Intent intent=getIntent();
-        String url= (String) intent.getSerializableExtra("obj");
+        url= (String) intent.getSerializableExtra("url");
+        title=(String)intent.getSerializableExtra("title");
         wv.loadUrl(url);
         wv.setWebViewClient(new WebViewClient(){
             @Override
@@ -80,7 +83,12 @@ public class InterestWebActivity extends BaseActivity  {
                 //toolbar.setLogo(R.drawable.ic_about);
                 break;
             case R.id.share:
-                Toast.makeText(this,"share",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_SUBJECT, "哈哈哈");
+                intent.putExtra(Intent.EXTRA_TEXT, "标题："+title+url+"\n"+"---来自IT资讯");
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(Intent.createChooser(intent, "IT资讯分享"));
                 break;
 
             default:

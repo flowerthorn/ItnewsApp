@@ -18,7 +18,7 @@ import com.items.code.R;
 import com.items.code.model.bean.data.Info;
 import com.items.code.model.bean.data.RESULT;
 import com.items.code.model.bean.data.dataInfo;
-import com.items.code.ui.main.activity.ItemWebActivity;
+import com.items.code.ui.main.activity.LastestWebActivity;
 import com.items.code.ui.main.adapter.InfoListAdapter;
 import java.util.ArrayList;
 
@@ -79,7 +79,7 @@ public class LastestFragment extends Fragment implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         dataInfo dataInfo= dataInfoslist.get(position);
-        Intent intent=new Intent(getActivity(),ItemWebActivity.class);
+        Intent intent=new Intent(getActivity(),LastestWebActivity.class);
         intent.putExtra("obj",dataInfo);
         startActivity(intent);
     }

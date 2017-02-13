@@ -139,9 +139,11 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String object = interInfo.getUrllist().get(position);
+        String url = interInfo.getUrllist().get(position);
+        String title=interInfo.getTitlelist().get(position);
         Intent intent=new Intent(getActivity(),InterestWebActivity.class);
-        intent.putExtra("obj",object);
+        intent.putExtra("url",url);
+        intent.putExtra("title",title);
         startActivity(intent);
     }
 
