@@ -37,7 +37,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
     private List<String> urlList;
     private List<String> titleList;
     private String url="http://www.myexception.cn/other/";
-    Toolbar toolbar;
+    private Toolbar toolbar;
     public InterestingFragment() {
 
     }

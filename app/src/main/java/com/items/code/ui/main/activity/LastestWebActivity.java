@@ -9,15 +9,22 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
+import com.items.code.Utils.DbUtils;
 import com.items.code.Utils.WebUtils;
+import com.items.code.model.bean.data.LiteTable.CollectNews;
 import com.items.code.model.bean.data.dataInfo;
 import com.items.code.ui.main.fragment.MyApplication;
+
+import org.litepal.crud.DataSupport;
+import org.litepal.tablemanager.Connector;
 
 /**
  * Created by lihongxin on 2017/2/13.
@@ -29,9 +36,11 @@ public class LastestWebActivity extends BaseActivity {
     private dataInfo dataInfo;
     private String url=null;
     private String title=null;
+    Boolean flag=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //flag=DbUtils.ifExitInCollect(url);
         setContentView(R.layout.item_content);
         Toolbar toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,6 +78,12 @@ public class LastestWebActivity extends BaseActivity {
         title=dataInfo.getTitle();
         getLeatestUrlHtml(url);
 
+    }
+
+    @Override
+    protected void onStart() {
+        flag=DbUtils.ifExitInCollect(url);
+        this.invalidateOptionsMenu();
     }
 
     public void getLeatestUrlHtml(String url) {
@@ -109,18 +124,50 @@ public class LastestWebActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.toolbar,menu);
         return true;
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        if (flag=false){
+            menu.getItem(R.id.collect).setIcon(R.drawable.ic_favorite_border_black_24dp);
+        }
+        else{
+            menu.getItem(R.id.collect).setIcon(R.drawable.ic_favorite_black_24dp);
+        }
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()){
    /*         case R.id.backup:
                 finish();
                 break;*/
             case R.id.collect:
+            /*    if(){item.setIcon(R.drawable.ic_favorite_black_24dp);}*/
+                //DbUtils.createDatabase();
+
+                if (flag=false){
+                DbUtils.createDatabase();
+                Toast.makeText(this,"收藏成功",Toast.LENGTH_SHORT).show();
+                CollectNews collectNews=new CollectNews();
+                collectNews.setNews_title(title);
+                collectNews.setNews_url(url);
+                collectNews.save();
+                flag=true;
                 item.setIcon(R.drawable.ic_favorite_black_24dp);
+                }
+                else {
+                    DataSupport.deleteAll(CollectNews.class,"news_url=?",url);
+                    flag=false;
+                    item.setIcon(R.drawable.ic_favorite_border_black_24dp);
+
+                }
                 break;
             case R.id.share:
                 Intent intent=new Intent(Intent.ACTION_SEND);

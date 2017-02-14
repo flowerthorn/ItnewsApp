@@ -80,7 +80,7 @@ public class InterestWebActivity extends BaseActivity  {
                 break;*/
             case R.id.collect:
                 item.setIcon(R.drawable.ic_favorite_black_24dp);
-                //toolbar.setLogo(R.drawable.ic_about);
+
                 break;
             case R.id.share:
                 Intent intent=new Intent(Intent.ACTION_SEND);

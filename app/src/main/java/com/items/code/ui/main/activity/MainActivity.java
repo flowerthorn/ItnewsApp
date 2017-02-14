@@ -127,11 +127,10 @@ public class MainActivity extends BaseActivity
             toolbar.setTitle("主页资讯");
 
         } else if (id == R.id.smileInfo) {
-        /*    Intent intent=new Intent(MainActivity.this,CollectActivity.class);
-            startActivity(intent);*/
 
         } else if (id == R.id.collectInfo) {
          Intent intent=new Intent(MainActivity.this,CollectActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.about) {
  /*           Intent intent=new Intent(MainActivity.this, AboutActivity.class);

@@ -7,10 +7,11 @@
     android:title="Backup"
     app:showAsAction="always">
    </item>-->
+<!--    android:icon="@drawable/ic_favorite_border_black_24dp"-->
     <item
         android:id="@+id/collect"
-        android:icon="@drawable/ic_favorite_border_black_24dp"
         android:title="Collect"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
         app:showAsAction="always">
     </item>
     <item

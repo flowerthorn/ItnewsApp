@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
+    <android.support.v7.widget.Toolbar
+        app:theme="@style/MyActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#ffffff"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="收藏"/>
+        app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+        android:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+        android:layout_height="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
 
 </LinearLayout>

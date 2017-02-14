@@ -32,7 +32,8 @@
         <activity android:name=".ui.main.activity.InterestWebActivity"
             android:label="新闻详情"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.collect.CollectActivity"/>
+        <activity android:name=".ui.collect.CollectActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
