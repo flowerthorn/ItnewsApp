@@ -25,9 +25,9 @@
     android:id="@+id/tablayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:tabSelectedTextColor="#B6B6B6"
-    app:tabTextColor="#B6B6B6"
-    app:tabIndicatorColor="#B6B6B6"
+    app:tabSelectedTextColor="#ffffff"
+    app:tabTextColor="#ffffff"
+    app:tabIndicatorColor="#ffffff"
     android:background="?attr/colorPrimary"
     style="@style/MainTabLayout"
     >

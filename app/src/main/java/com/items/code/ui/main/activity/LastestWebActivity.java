@@ -36,7 +36,8 @@ public class LastestWebActivity extends BaseActivity {
     private dataInfo dataInfo;
     private String url=null;
     private String title=null;
-    Boolean flag=false;
+    private String imageurl=null;
+    private Boolean flag=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,16 +74,20 @@ public class LastestWebActivity extends BaseActivity {
 
         });*/
         Intent intent=getIntent();
-        dataInfo= (dataInfo) intent.getSerializableExtra("obj");
+  /*      dataInfo= (dataInfo) intent.getSerializableExtra("obj");
         url=dataInfo.getUrl();
         title=dataInfo.getTitle();
+        imageurl=dataInfo.getThumbnail_pic_s();*/
+        url= (String) intent.getSerializableExtra("url");
+        title= (String) intent.getSerializableExtra("title");
+        imageurl= (String) intent.getSerializableExtra("imageurl");
         getLeatestUrlHtml(url);
 
     }
 
     @Override
     protected void onStart() {
-        flag=DbUtils.ifExitInCollect(url);
+        super.onStart();
         this.invalidateOptionsMenu();
     }
 
@@ -124,21 +129,24 @@ public class LastestWebActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        //super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.toolbar,menu);
-        return true;
+        MenuItem collectitem;
+        collectitem=menu.getItem(0);
+        flag=DbUtils.ifExitInCollect(url);
+        if (flag==false){
+            collectitem.setIcon(R.drawable.ic_favorite_border_black_24dp);
+        }
+        else{
+            collectitem.setIcon(R.drawable.ic_favorite_black_24dp);
+        }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-
-        if (flag=false){
-            menu.getItem(R.id.collect).setIcon(R.drawable.ic_favorite_border_black_24dp);
-        }
-        else{
-            menu.getItem(R.id.collect).setIcon(R.drawable.ic_favorite_black_24dp);
-        }
-        return true;
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -152,21 +160,18 @@ public class LastestWebActivity extends BaseActivity {
             /*    if(){item.setIcon(R.drawable.ic_favorite_black_24dp);}*/
                 //DbUtils.createDatabase();
 
-                if (flag=false){
+                if (flag==false){
                 DbUtils.createDatabase();
+                DbUtils.addCollectNews(title,url,imageurl);
                 Toast.makeText(this,"收藏成功",Toast.LENGTH_SHORT).show();
-                CollectNews collectNews=new CollectNews();
-                collectNews.setNews_title(title);
-                collectNews.setNews_url(url);
-                collectNews.save();
                 flag=true;
                 item.setIcon(R.drawable.ic_favorite_black_24dp);
                 }
                 else {
-                    DataSupport.deleteAll(CollectNews.class,"news_url=?",url);
+                    DbUtils.deleteCollectNews(url);
+                    Toast.makeText(this,"取消收藏",Toast.LENGTH_SHORT).show();
                     flag=false;
                     item.setIcon(R.drawable.ic_favorite_border_black_24dp);
-
                 }
                 break;
             case R.id.share:
@@ -179,7 +184,7 @@ public class LastestWebActivity extends BaseActivity {
                 break;
             default:
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 }
 

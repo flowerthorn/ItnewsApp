@@ -79,8 +79,14 @@ public class LastestFragment extends Fragment implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         dataInfo dataInfo= dataInfoslist.get(position);
+        String url=dataInfo.getUrl();
+        String title=dataInfo.getTitle();
+        String imageurl=dataInfo.getThumbnail_pic_s();
         Intent intent=new Intent(getActivity(),LastestWebActivity.class);
-        intent.putExtra("obj",dataInfo);
+        intent.putExtra("url",url);
+        intent.putExtra("title",title);
+        intent.putExtra("imageurl",imageurl);
+        //intent.putExtra("obj",dataInfo);
         startActivity(intent);
     }
 }

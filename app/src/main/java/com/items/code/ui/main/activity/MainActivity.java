@@ -133,8 +133,8 @@ public class MainActivity extends BaseActivity
             startActivity(intent);
 
         } else if (id == R.id.about) {
- /*           Intent intent=new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);*/
+         Intent intent=new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
 
         }
         else if (id==R.id.day_night){

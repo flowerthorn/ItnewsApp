@@ -4,7 +4,6 @@ package com.items.code.ui.main.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toolbar;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -141,9 +139,11 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String url = interInfo.getUrllist().get(position);
         String title=interInfo.getTitlelist().get(position);
+        String imageurl=interInfo.getSrclist().get(position);
         Intent intent=new Intent(getActivity(),InterestWebActivity.class);
         intent.putExtra("url",url);
         intent.putExtra("title",title);
+        intent.putExtra("imageurl",imageurl);
         startActivity(intent);
     }
 

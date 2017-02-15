@@ -14,7 +14,7 @@ public class CollectNews extends DataSupport{
     private String news_image;
 
 
-    public String getNews_image(String s) {
+    public String getNews_image() {
         return news_image;
     }
 

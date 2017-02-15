@@ -29,4 +29,21 @@ public class DbUtils {
         }
         return flag;
     }
+    //查询所有新闻
+    public static List<CollectNews> getCollectNewsList(){
+        List<CollectNews> collectNewses = DataSupport.order("id desc").find(CollectNews.class);
+        return collectNewses;
+    }
+    //增加一条新闻
+    public static void addCollectNews(String title,String url,String imageurl){
+        CollectNews collectNews=new CollectNews();
+        collectNews.setNews_title(title);
+        collectNews.setNews_url(url);
+        collectNews.setNews_image(imageurl);
+        collectNews.save();
+    }
+    //删除当前新闻
+    public static void deleteCollectNews(String url){
+        DataSupport.deleteAll(CollectNews.class,"news_url=?",url);
+    }
 }

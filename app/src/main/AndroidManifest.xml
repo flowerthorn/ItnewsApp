@@ -34,6 +34,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ui.collect.CollectActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.other.AboutActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="关于作者"/>
     </application>
 
 </manifest>

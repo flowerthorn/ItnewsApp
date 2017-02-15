@@ -4,8 +4,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="theme_name_green">复古绿</string>
-    <string name="theme_name_black">夜间黑</string>
+    <string name="about_addr">项目地址:\nhttps://github.com/flowerthorn/ItnewsApp</string>
+    <string name="about_author">作者:李哈哈\n(邮箱:lihongxin@lihongxin.com)\n(微信:13472098876)</string>
+    <string name="about_project">项目简介:\nIT资讯,一个纯粹轻便阅读的App\n为了熟悉Android端应用的开发使用,也为了能有一款轻便的阅读IT新闻的简洁的阅读应用,上学期间利用闲暇时间做了这个项目\n
+        本着学习的目的,该项目会持续优化,加入更丰富的阅读内容与功能,并不断尝试最新的技术,欢迎star、fork、issue、email,提出您宝贵的建议。</string>
+
+
 </resources>

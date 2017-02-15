@@ -5,6 +5,8 @@
   <color name="colorPrimaryDark">#6B8E23</color>
   <color name="colorAccent">#68838B</color>
   <color name="windowBackground">#d6d3d3</color>
+    <color name="colorCard">#FFFFFF</color>
+    <color name="colorText">#ffffff</color>
 <!--  <color name="slide_1">#4f91ff</color>
   <color name="slide_2">#fb9c25</color>
   <color name="slide_3">#5ab55d</color>
