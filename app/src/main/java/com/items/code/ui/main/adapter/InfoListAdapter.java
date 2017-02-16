@@ -44,9 +44,9 @@ public class InfoListAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        Log.i("First positon",""+position);
-        Log.i("First count",""+list.size());
-        Log.i("First getItem",""+list.get(position));
+        //Log.i("First positon",""+position);
+        //Log.i("First count",""+list.size());
+        //Log.i("First getItem",""+list.get(position));
         if(convertView==null){
             holder=new ViewHolder();
             convertView= LayoutInflater.from(c).inflate(R.layout.lastest_itemlist,null);

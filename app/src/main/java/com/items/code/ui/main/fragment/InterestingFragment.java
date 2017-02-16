@@ -96,7 +96,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
             Pattern pattern=Pattern.compile(regEX);
             Matcher matcher=pattern.matcher(data);
             while(matcher.find()){
-                Log.i("Src:","http://www.myexception.cn/"+matcher.group());
+                //Log.i("Src:","http://www.myexception.cn/"+matcher.group());
                 srcList.add("http://www.myexception.cn/"+matcher.group());
             }
         }
@@ -111,7 +111,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
             Matcher matcher=pattern.matcher(data);
             while(matcher.find()){
                 titleList.add(matcher.group());
-                Log.i("Title:",matcher.group());
+                //Log.i("Title:",matcher.group());
             }
 
         }
@@ -126,7 +126,7 @@ public class InterestingFragment extends Fragment implements AdapterView.OnItemC
             Pattern pattern=Pattern.compile(regEX);
             Matcher matcher=pattern.matcher(data);
             while(matcher.find()){
-                Log.i("Url:","http://www.myexception.cn/"+matcher.group());
+                //Log.i("Url:","http://www.myexception.cn/"+matcher.group());
                 urlList.add("http://www.myexception.cn/"+matcher.group());
             }
 

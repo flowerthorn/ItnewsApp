@@ -49,9 +49,9 @@ public class InterestInfoListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
-        Log.i("Second getItem", "" + interestdataInfo.getUrllist().get(position));
-        Log.i("Second count", "" + interestdataInfo.getUrllist().size());
-        Log.i("Second position", "" + position);
+        //Log.i("Second getItem", "" + interestdataInfo.getUrllist().get(position));
+        //Log.i("Second count", "" + interestdataInfo.getUrllist().size());
+        //Log.i("Second position", "" + position);
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = View.inflate(c, R.layout.interest_itemlist, null);

@@ -81,12 +81,18 @@ public class InterestWebActivity extends BaseActivity  {
     }
 
     private void dealHtml(String s) {
-        //String result=null;
-        //String replace=s.substring(s.indexOf("<link href=\"/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\">"),s.indexOf("<link rel=\"shortcut icon\" href=\"/r/cms/www/red/img/favicon.ico\" type=\"image/x-icon\">"));
-        //LogUtils.Logli("截取的字符串",replace);
-        // result=s.replace(replace,"http://www.myexception.cn/r/cms/www/red/css/20150202/co.css");
+        String result=null;
+        String replace=null;
+        replace=s.substring(s.indexOf("<link href=\"/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\" />"),s.indexOf("<link rel=\"shortcut icon\" href=\"/r/cms/www/red/img/favicon.ico\" type=\"image/x-icon\" />"));
+        result=s.replace(replace,"<link href=\"http://www.myexception.cn/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\" />");
+        //LogUtils.Logli("result",result);
 
-        wv.loadDataWithBaseURL(WebUtils.BASE_URL,s,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
+        // result=s.replace(replace,"http://www.myexception.cn/r/cms/www/red/css/20150202/co.css");
+       //String jieqqu=s.substring(s.indexOf("<link href=\"/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\">"),"<link href=\"/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\">".length());
+        //s=s.replace(jieqqu,"<link href=\"http://www.myexception.cn/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\">");
+        //LogUtils.Logli("截取的字符串",s);
+        wv.loadDataWithBaseURL(WebUtils.BASE_URL,result,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
+
     }
 
     @Override
