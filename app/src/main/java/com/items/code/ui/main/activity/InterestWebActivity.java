@@ -1,6 +1,5 @@
 package com.items.code.ui.main.activity;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +10,18 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
+import com.items.code.Utils.DbUtils;
+import com.items.code.Utils.LogUtils;
+import com.items.code.Utils.WebUtils;
+import com.items.code.ui.main.fragment.MyApplication;
+
 /**
  * Created by lihongxin on 2016/12/11.
  */
@@ -24,6 +33,7 @@ public class InterestWebActivity extends BaseActivity  {
     String title=null;
     String url=null;
     String imageurl=null;
+    private Boolean flag=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,34 +47,62 @@ public class InterestWebActivity extends BaseActivity  {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setAllowFileAccess(true);
         webSettings.setBuiltInZoomControls(true);//添加对js功能的支持
+        wv.setWebViewClient(new WebViewClient());
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
+        {    @Override
+        public void onClick(View v) {
+            finish();
+        }
+        });
         Intent intent=getIntent();
         url= (String) intent.getSerializableExtra("url");
         title=(String)intent.getSerializableExtra("title");
         imageurl= (String) intent.getSerializableExtra("imageurl");
-        wv.loadUrl(url);
-        wv.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
+        getInterestUrlHtml(url);//对url进行解析和处理
+    }
 
-                return true;
+    private void getInterestUrlHtml(String url) {
+        StringRequest request=new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+                //对获取到的html代码处理
+                //LogUtils.Logli("请求url返回的html(未处理):",s);
+                dealHtml(s);
+
+            }
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
 
             }
         });
+        MyApplication.getRequsetquene().add(request);
+    }
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener()
-        {    @Override
-        public void onClick(View v) {
-          finish();
-        }
-        }
-        );
+    private void dealHtml(String s) {
+        //String result=null;
+        //String replace=s.substring(s.indexOf("<link href=\"/r/cms/www/red/css/20150202/co.css\" rel=\"stylesheet\" type=\"text/css\">"),s.indexOf("<link rel=\"shortcut icon\" href=\"/r/cms/www/red/img/favicon.ico\" type=\"image/x-icon\">"));
+        //LogUtils.Logli("截取的字符串",replace);
+        // result=s.replace(replace,"http://www.myexception.cn/r/cms/www/red/css/20150202/co.css");
+
+        wv.loadDataWithBaseURL(WebUtils.BASE_URL,s,WebUtils.MIME_TYPE, WebUtils.ENCODING,"");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar,menu);
-        return true;
+        MenuItem collectitem;
+        collectitem=menu.getItem(0);
+        flag=DbUtils.ifExitInCollect(url);
+        if (flag==false){
+            collectitem.setIcon(R.drawable.ic_favorite_border_black_24dp);
+        }
+        else{
+            collectitem.setIcon(R.drawable.ic_favorite_black_24dp);
+        }
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -74,8 +112,19 @@ public class InterestWebActivity extends BaseActivity  {
                 finish();
                 break;*/
             case R.id.collect:
-                item.setIcon(R.drawable.ic_favorite_black_24dp);
-
+                if (flag==false){
+                    DbUtils.createDatabase();
+                    DbUtils.addCollectNews(title,url,imageurl);
+                    Toast.makeText(this,"收藏成功",Toast.LENGTH_SHORT).show();
+                    flag=true;
+                    item.setIcon(R.drawable.ic_favorite_black_24dp);
+                }
+                else {
+                    DbUtils.deleteCollectNews(url);
+                    Toast.makeText(this,"取消收藏",Toast.LENGTH_SHORT).show();
+                    flag=false;
+                    item.setIcon(R.drawable.ic_favorite_border_black_24dp);
+                }
                 break;
             case R.id.share:
                 Intent intent=new Intent(Intent.ACTION_SEND);
