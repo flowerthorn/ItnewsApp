@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.items.code.R;
 import com.items.code.model.bean.data.LiteTable.CollectNews;
+import com.items.code.ui.main.activity.HotWebActivity;
 import com.items.code.ui.main.activity.InterestWebActivity;
 import com.items.code.ui.main.activity.LastestWebActivity;
 import com.items.code.ui.main.fragment.MyApplication;
@@ -45,6 +46,13 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
                 }
                 else if (where=="lastest"){
                     Intent intent=new Intent(view.getContext(),LastestWebActivity.class);
+                    intent.putExtra("url",collectNews.getNews_url());
+                    intent.putExtra("title",collectNews.getNews_title());
+                    intent.putExtra("imageurl",collectNews.getNews_image());
+                    view.getContext().startActivity(intent);
+                }
+                else if (where=="hot"){
+                    Intent intent=new Intent(view.getContext(),HotWebActivity.class);
                     intent.putExtra("url",collectNews.getNews_url());
                     intent.putExtra("title",collectNews.getNews_title());
                     intent.putExtra("imageurl",collectNews.getNews_image());
@@ -92,8 +100,8 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
         {
             flag="lastest";
         }
-        else{
-            flag="interest";
+        else if (url.contains("http://chuansong.me")){
+            flag="hot";
         }
 
         return flag;

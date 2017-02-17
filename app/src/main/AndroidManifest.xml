@@ -37,6 +37,9 @@
         <activity android:name=".ui.other.AboutActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="关于作者"/>
+        <activity android:name=".ui.main.activity.HotWebActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="新闻详情"/>
     </application>
 
 </manifest>
