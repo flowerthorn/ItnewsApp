@@ -1,12 +1,12 @@
 <resources>
 
-
+    <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--<item name="colorPrimaryDark">@color/colorPrimary</item>-->
+    <!--<item name="colorAccent">@color/colorAccent</item>-->
+    <!--<item name="android:textColor">@android:color/black</item>-->
     //日间--默认theme
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:listDivider">@drawable/divider</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -20,12 +20,11 @@
         <item name="android:windowActionModeOverlay">true</item>
     </style>
 
-    <!--夜间模式主题-->
+  <!--  夜间模式主题-->
     <style name="BaseTheme.Night" parent="Theme.AppCompat.NoActionBar">
         <item name="android:textColor">?attr/colorTextLight</item>
     </style>
-    <!--默认主题-->
+   <!-- 默认主题-->
     <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
     </style>
 </resources>

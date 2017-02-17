@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.items.code.R;
+import com.items.code.Utils.DecorationUtils;
 import com.items.code.Utils.LogUtils;
 import com.items.code.model.bean.data.HotNews;
 import com.items.code.ui.main.adapter.HotNewsAdapter;
@@ -32,22 +33,22 @@ public class HotFragment extends Fragment {
     private String image=null;
     private String time=null;
     private String newsurl=null;
+    private String regEx="<div class=\"pagedlist_item\" tabindex=\"-1\" >(.*?)</span></span></div></div></div>";
     private String url_regEx="(?<=<a class=\"question_link\" href=\").*?(?=\" target)";
     private String title_regEx="(?<=target=\"_blank\">).*?(?=</a></span>)";
     //private String image_regEx="http://.*?.jpg";
     private String image_regEx="(http://h.chuansong.me/).*?(.jpg)";
-    private String regEx="<div class=\"pagedlist_item\" tabindex=\"-1\" >(.*?)</span></span></div></div></div>";
     private String time_regEx="(?<=<span class=\"timestamp\"><span>).*?(?=</span>)";
     private String from_regEx="(?<=alt=\").*?(?=\" height)";
+    private RecyclerView recycleview;
+    private HotNewsAdapter hotnewsAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_hot,container,false);
         initHotNews();
-        RecyclerView recycleview= (RecyclerView) view.findViewById(R.id.hot_recycleview);
+        recycleview= (RecyclerView) view.findViewById(R.id.hot_recycleview);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getContext());
         recycleview.setLayoutManager(layoutManager);
-        HotNewsAdapter hotnewsAdapter=new HotNewsAdapter(hotnewsList);
-        recycleview.setAdapter(hotnewsAdapter);
         return view;
     }
 
@@ -68,6 +69,7 @@ public class HotFragment extends Fragment {
         });
 
         MyApplication.getRequsetquene().add(request);
+
 
     }
 
@@ -175,7 +177,7 @@ public class HotFragment extends Fragment {
                 title=titleMatcher.group();
             }
 
-            //将处理后得到的四个数据赋值给新闻
+            //将处理后得到的五个数据赋值给新闻
             HotNews hotnew=new HotNews();
             hotnew.setHotnew_from(from);
             hotnew.setHotnews_image(image);
@@ -184,6 +186,13 @@ public class HotFragment extends Fragment {
             hotnew.setHotnews_url(newsurl);
             hotnewsList.add(hotnew);
         }
+        sendListData(hotnewsList);
+    }
+
+    private void sendListData(List<HotNews> hotnewsList) {
+        hotnewsAdapter=new HotNewsAdapter(hotnewsList);
+        recycleview.setAdapter(hotnewsAdapter);
+        recycleview.addItemDecoration(new DecorationUtils(getContext(),DecorationUtils.VERTICAL_LIST));
     }
 }
 
