@@ -43,11 +43,17 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.main.activity.HotWebActivity"
-            android:label="详情页面"
+            android:label="新闻页面"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.smile.SmileActivity"
+        <activity
+            android:name=".ui.smile.SmileActivity"
             android:label="程序员笑话"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.main.activity.SmileWebActivity"
+            android:label="笑话详情"
+            android:theme="@style/AppTheme.NoActionBar"
+           />
 
 
     </application>

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.items.code.R;
 import com.items.code.model.bean.data.Smile;
 import com.items.code.ui.main.activity.HotWebActivity;
+import com.items.code.ui.main.activity.SmileWebActivity;
 import com.items.code.ui.main.fragment.MyApplication;
 
 import java.util.List;
@@ -46,7 +47,7 @@ public class SmileAdapter extends RecyclerView.Adapter<SmileAdapter.ViewHolder> 
             @Override
             public void onClick(View v) {
             Smile smile=list.get(holder.getAdapterPosition());
-            Intent intent=new Intent(v.getContext(),HotWebActivity.class);
+            Intent intent=new Intent(v.getContext(),SmileWebActivity.class);
                 intent.putExtra("url",smile.getSmile_url());
                 intent.putExtra("title",smile.getSmile_title());
                 intent.putExtra("imageurl",smile.getSmile_imageurl());

@@ -15,6 +15,7 @@ import com.items.code.model.bean.data.LiteTable.CollectNews;
 import com.items.code.ui.main.activity.HotWebActivity;
 import com.items.code.ui.main.activity.InterestWebActivity;
 import com.items.code.ui.main.activity.LastestWebActivity;
+import com.items.code.ui.main.activity.SmileWebActivity;
 import com.items.code.ui.main.fragment.MyApplication;
 
 import java.util.List;
@@ -46,6 +47,13 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
                 }
                 else if (where=="lastest"){
                     Intent intent=new Intent(view.getContext(),LastestWebActivity.class);
+                    intent.putExtra("url",collectNews.getNews_url());
+                    intent.putExtra("title",collectNews.getNews_title());
+                    intent.putExtra("imageurl",collectNews.getNews_image());
+                    view.getContext().startActivity(intent);
+                }
+                else if (where=="smile"){
+                    Intent intent=new Intent(view.getContext(),SmileWebActivity.class);
                     intent.putExtra("url",collectNews.getNews_url());
                     intent.putExtra("title",collectNews.getNews_title());
                     intent.putExtra("imageurl",collectNews.getNews_image());
@@ -103,8 +111,8 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
         else if (url.contains("http://chuansong.me")){
             flag="hot";
         }
-        else{
-            flag="hot";
+        else if (url.contains("http://www.runoob.com/")){
+            flag="smile";
         }
 
         return flag;

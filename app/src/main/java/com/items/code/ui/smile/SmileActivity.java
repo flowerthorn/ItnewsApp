@@ -15,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.items.code.Activity.BaseActivity;
 import com.items.code.R;
 import com.items.code.Utils.DecorationUtils;
+import com.items.code.Utils.LogUtils;
 import com.items.code.model.bean.data.Smile;
 import com.items.code.ui.main.adapter.SmileAdapter;
 import com.items.code.ui.main.fragment.MyApplication;
@@ -68,7 +69,8 @@ public class SmileActivity extends BaseActivity {
         StringRequest request=new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-
+                //String data=s.replace("\n","");
+                //LogUtils.Logli("Page2:",data+"");
                 analyseHTML(s);
             }
         }, new Response.ErrorListener() {
@@ -110,7 +112,7 @@ public class SmileActivity extends BaseActivity {
             while (titleMatcher.find()){
                 title=titleMatcher.group();
             }
-            Log.i("title",stringlist.size()+"");
+           // Log.i("title",stringlist.size()+"");
 
             Smile smile=new Smile();
             smile.setSmile_imageurl(image);
