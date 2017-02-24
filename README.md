@@ -16,4 +16,10 @@
 
 ## 效果展示：
 
-![](https://github.com/flowerthorn/ItnewsApp/raw/master/项目gif图/news_list.gif"项目主页")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/news_list.gif "项目主页")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/shoucang.gif "收藏")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/quxiaoshoucang.gif "取消收藏")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/share.gif "分享功能")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/theme.gif "主题切换功能")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/zhuti.gif "主题切换功能")
+![](https://github.com/flowerthorn/ItnewsApp/raw/master/gif/info.gif "关于页面")
