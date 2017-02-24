@@ -18,11 +18,12 @@ import com.items.code.R;
 import com.items.code.Utils.ThemeUtils;
 import com.items.code.ui.collect.CollectActivity;
 import com.items.code.ui.main.adapter.MainFragmentPagerAdapter;
+import com.items.code.ui.main.fragment.GoodselectFragment;
 import com.items.code.ui.main.fragment.InterestingFragment;
 import com.items.code.ui.main.fragment.HotFragment;
 import com.items.code.ui.main.fragment.LastestFragment;
-import com.items.code.ui.main.fragment.SelectFragment;
 import com.items.code.ui.other.AboutActivity;
+import com.items.code.ui.smile.SmileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,13 +61,13 @@ public class MainActivity extends BaseActivity
         tabLayout= (TabLayout) findViewById(R.id.tablayout);
         viewPager= (ViewPager) findViewById(R.id.viewpager);
         titlelist.add("日报");
-        titlelist.add("有趣");
         titlelist.add("热门");
         titlelist.add("精选");
+        titlelist.add("有趣");
         fragmentList.add(new LastestFragment());
-        fragmentList.add(new InterestingFragment());
         fragmentList.add(new HotFragment());
-        fragmentList.add(new SelectFragment());
+        fragmentList.add(new GoodselectFragment());
+        fragmentList.add(new InterestingFragment());
         //为viewPager设置适配器
         MainFragmentPagerAdapter mainFragmentPagerAdapter=new MainFragmentPagerAdapter(getSupportFragmentManager(),titlelist,fragmentList);
         viewPager.setAdapter(mainFragmentPagerAdapter);
@@ -127,7 +128,8 @@ public class MainActivity extends BaseActivity
             toolbar.setTitle("主页资讯");
 
         } else if (id == R.id.smileInfo) {
-
+            Intent intent=new Intent(MainActivity.this,SmileActivity.class);
+            startActivity(intent);
         } else if (id == R.id.collectInfo) {
          Intent intent=new Intent(MainActivity.this,CollectActivity.class);
             startActivity(intent);

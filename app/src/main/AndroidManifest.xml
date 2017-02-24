@@ -19,28 +19,37 @@
         <activity
             android:name=".ui.main.activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.activity.LastestWebActivity"
+        <activity
+            android:name=".ui.main.activity.LastestWebActivity"
             android:label="新闻详情"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.main.activity.InterestWebActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.main.activity.InterestWebActivity"
             android:label="新闻详情"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.collect.CollectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.other.AboutActivity"
+            android:label="关于作者"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.main.activity.HotWebActivity"
+            android:label="详情页面"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.smile.SmileActivity"
+            android:label="程序员笑话"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.collect.CollectActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.other.AboutActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="关于作者"/>
-        <activity android:name=".ui.main.activity.HotWebActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="新闻详情"/>
+
+
     </application>
 
 </manifest>

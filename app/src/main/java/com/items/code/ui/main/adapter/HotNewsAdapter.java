@@ -48,8 +48,8 @@ public class HotNewsAdapter extends RecyclerView.Adapter<HotNewsAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         HotNews hotNews=hotNewsList.get(position);
-        holder.from.setText(hotNews.getHotnew_from());
-        holder.title.setText("来自:"+hotNews.getHotnews_title());
+        holder.from.setText("来自:"+hotNews.getHotnew_from());
+        holder.title.setText(hotNews.getHotnews_title());
         holder.time.setText(hotNews.getHotnews_time());
         Glide.with(MyApplication.getContext()).load(hotNews.getHotnews_image()).placeholder(R.drawable.hongxin).into(holder.imageView);
         }

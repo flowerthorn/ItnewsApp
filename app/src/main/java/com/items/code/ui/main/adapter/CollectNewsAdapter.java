@@ -51,7 +51,7 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
                     intent.putExtra("imageurl",collectNews.getNews_image());
                     view.getContext().startActivity(intent);
                 }
-                else if (where=="hot"){
+                else{
                     Intent intent=new Intent(view.getContext(),HotWebActivity.class);
                     intent.putExtra("url",collectNews.getNews_url());
                     intent.putExtra("title",collectNews.getNews_title());
@@ -101,6 +101,9 @@ public class CollectNewsAdapter extends RecyclerView.Adapter<CollectNewsAdapter.
             flag="lastest";
         }
         else if (url.contains("http://chuansong.me")){
+            flag="hot";
+        }
+        else{
             flag="hot";
         }
 

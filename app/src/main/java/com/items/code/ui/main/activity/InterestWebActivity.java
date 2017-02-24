@@ -58,7 +58,8 @@ public class InterestWebActivity extends BaseActivity  {
         url= (String) intent.getSerializableExtra("url");
         title=(String)intent.getSerializableExtra("title");
         imageurl= (String) intent.getSerializableExtra("imageurl");
-        getInterestUrlHtml(url);//对url进行解析和处理
+       // getInterestUrlHtml(url);//对url进行解析和处理
+        wv.loadUrl(url);
     }
 
     private void getInterestUrlHtml(String url) {
