@@ -3,7 +3,7 @@
 ##介绍：
 -  轻巧，方便的浏览it新闻 :laughing:
 -  多种类型的it资讯，有趣、热门、最新、还有程序员小笑话，供我们在闲时浏览新闻 :laughing:
--  实现收藏和分享的功能 :simple_smile:
+-  实现收藏和分享的功能 数据库使用litepal
 -  多种主题切换，夜间模式护眼 :stuck_out_tongue_closed_eyes:
 -  使用MaterialDesign风格，界面清新简单 :heart:
 -  页面的内容只有一个是在聚合的接口获得，其他页面在比较好的it新闻页面爬去（仅作为学习），主要用正则！十分坑，要十分细心。。 :innocent:
